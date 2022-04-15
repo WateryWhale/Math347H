@@ -1,0 +1,171 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[a4paper, total={6.5in, 8in}]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{MnSymbol}
+\usepackage{wasysym}
+\title{Math 347 HW 7}
+\author{Dylan Chiu}
+\begin{document}
+    \maketitle
+    \subsection*{Exercise 3.5.5.}
+        \textit{Show that the limit of a convergent sequence is unique.}
+        \begin{proof}
+            To derive a contradiction suppose $a,b$ be distinct limits of a convergent sequence $(a_k)$
+            Then definition of convergence states: 
+            Given any arbitrary $r \in \mathbb{Q}, \exists N_1, N_2 \in \mathbb{N} s.t \forall n \ge N_1, |a_n - a| < r$ and $\forall m \ge N_2 |a_m - b| < r$
+
+            Let $N=max(N_1, N_2), r = \frac{|a-b|}{4}$ (notice a != b implies $r > 0$)
+
+            Then $\forall n \ge N, |a_n - a| < r$ and $|a_n - b| < r.$
+
+            $|a_n-b| = |b - a_n|$
+
+            $|a_n - a| + |b - a_n| < 2r = \frac{|a-b|}{2}$
+            
+            $|(a_n-a)+(b-a_n)| \le |a_n - a| + |b - a_n|$ (triangle !=)
+
+            $|b-a| = |a-b| \le |a_n - a| + |b - a_n| < \frac{|a-b|}{2}$
+
+            $|a-b| < \frac{|a-b|}{2}$. A contradiction 
+            
+        \end{proof}
+    \subsection*{Exercise 3.5.10}
+        \textit{Show that, with addition and multiplication defined as above, C is a commutative ring with 1.}
+        \begin{proof}
+            (already shown in class that addition and multiplication are closed)
+            Now show that addition is associative, commutative, has identity, and has inverses.
+            Show that multiplication is asssociative, commutative, and has identity. 
+
+            Let $(a_k)_{k\in \mathbb{N}} \in C$
+
+            Multiplication and addition are obviously associative and commutative by properties of the rationals. 
+
+            Additive identity = $(0,0,\mathellipsis)$
+
+            Additive inverse $-(a_k) = (-a_1, -a_2, \mathellipsis)$
+
+            Multiplicative identity = $(1,1,\mathellipsis)$
+        \end{proof}
+        \pagebreak
+    \subsection*{Exercise 3.5.13.}
+    \textit {Show that if a Cauchy sequence does not converge to 0, all the terms of the sequence eventually have the same sign}
+        \begin{proof}
+            If a Cauchy sequence $(a_k)_{k \in \mathbb{N}}$ does not converge to 0, then $\exists r > 0, N_1 \in \mathbb{N}, \forall n \ge N_1, |a_n| \ge r$
+
+            Since $(a_k)$ is Cauchy, $\exists N_2 \in \mathbb{N} s.t |a_n-a_m| < \frac{r}{2}, \forall n,m \ge N$
+
+            Let $ N = max(N_1, N_2)$
+
+            To derive a contradiction, suppose $a_n, a_m$ have opposite parity. 
+
+            Then consider $a_n >0, a_m < 0$ 
+            
+            $|r-a_m| < \frac{r}{2}$
+
+            But then $a_m > 0$, a contradiction. 
+
+        \end{proof}
+    \subsection*{Exercise 3.5.15.}
+    \textit{Show that $\sim$ defines an equivalence relation on C.}
+        \begin{proof}
+            $\sim$ is reflexive: $(a_k-a_k)_{k\in N} = (0,0,0..) \in I$
+
+            $\sim$ is symmetric: 
+            
+            Suppose $(a_k)\sim (b_k)$, then $(a_k-b_k) \in I.$
+
+            Then $(a_k-b_k)$ converges to 0. 
+
+            Then $\forall r \in \mathbb{Q}, \exists N, \forall n \ge N, |a_n-b_n| < r$
+
+            $|a_n-b_n| = |b_n-a_n| < r$
+
+            $(b_k-a_k)$ converges to 0. $(b_k-a_k)$ is in I. 
+
+            then $(b_k) \sim (a_k)$
+
+
+            $\sim$ is transitive: 
+
+            Suppose $(a_k) \sim (b_k)$ and $(b_k) \sim (c_k)$
+
+            Then $(c_k) \sim (b_k)$ ($\sim$ is symmetric)
+
+            $(a_k - b_k) , (c_k - b_k)$ converge to 0
+
+            $(a_k - b_k) - (c_k - b_k) = (a_k - c_k)$
+
+            I is closed under addition, therefore $(a_k) \sim (c_k)$
+
+        \end{proof}
+    \pagebreak
+    \subsection*{Exercise 3.5.16.}
+        \textit{Show that addition and multiplication are well-defined on} $\mathbb{R}$
+        \begin{proof}
+            Suppose $(a_k)\sim (a’_k)$ and $(b_k)\sim (b’_k)$
+
+            Addition:
+
+            $(a_k-a’_k) \in I$ and converges to 0
+
+            $(b_k - b’_k) \in in I$ and converges to 0. 
+
+            $(a_k-a’_k) + (b_k - b’_k) = (a_k-a’_k + b_k - b’_k) = (a_k+b_k - (a’_k+b’_k))$ in I since I is closed under addition
+
+            $(a_k+b_k ) \sim (a’_k+b’_k)$
+
+            Multiplication: We want $(a_k*b_k) \sim (a’_k * b’_k)$
+
+            I.e want $(a_k*b_k-a’_k * b’_k) \in I$
+
+            $a_k*b_k-a’_k * b’_k = a_k*b_k+(b_k*a’_k - b_k*a’_k) - a’k*b’_k$
+
+            $= (a_k*b_k - b_k*a’_k) + (b_k*a’_k - a’_k*b’_k)$
+
+            $=b_k(a_k-a’_k) + a’_k(b_k-b’_k)$
+
+            |$a_k*b_k-a’_k * b’_k| = | b_k(a_k-a’_k) + a’_k(b_k-b’_k)|$
+
+            $< | b_k|*|(a_k-a’_k)|+ |a’_k|*|(b_k-b’_k)|$
+
+            There exists $S,L$ such that $|b_k| \le S$ and $|a’_k| \le L.$ since all Cauchy sequences are bounded. 
+
+            Let $M = max(S,L).$ 
+
+            $|a_k*b_k-a’_k * b’_k| < M(|(a_k-a’_k)|+ |(b_k-b’_k)|)$ 
+
+            $(a_k-a’_k) and (b_k-b’_k) \in I.$
+
+            $|a_k*b_k-a’_k * b’_k| < c_k$ where $c_k$ converges to 0.
+
+            Since $c_k$ converges to 0, $\forall \epsilon > 0, \exists N s.t \forall n\ge N, |c_n| < \epsilon$
+
+            $|a_n*b_n-a’_n * b’_n| < \epsilon$ 
+
+            Thus $a_k*b_k-a’_k * b’_k$ converges to zero.
+
+            $(a_k*b_k) \sim (a’_k * b’_k)$
+        \end{proof}
+
+        \subsection*{Exercise 3.5.20}
+            \textit{Show that the order relation on R defined above is well defined and makes R an ordered field.}
+            \begin{proof}
+                Let $(a_k) \sim (a’_k)$ and $(b_k) \sim (b’_k)$ and suppose $(a_k) < (b_k)$
+
+                This means $\exists N \in \mathbb{N} s.t \forall n\ge N, a_n < b_n$
+                
+                $a_n  < b_n-(b’_n+b’_n)$
+
+                $a_n  < (b_n-b’_n)+(b’_n)$
+
+                $a_n  < |(b_n-b’_n)+(b’_n)|$
+
+                $a_n < r + |b’_n|$
+
+                $|a'_n-(a'_n-a_n)| < r + |b'_n|$
+
+                $|a'_n| - |a'_n-a_n| < r + |b'_n|$
+
+                $|a'_n| < r + |b'_n|$ 
+            \end{proof}
+\end{document}

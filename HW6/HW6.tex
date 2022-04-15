@@ -1,0 +1,211 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[a4paper, total={6.5in, 8in}]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{MnSymbol}
+\usepackage{wasysym}
+\title{Math 347 HW 6}
+\author{Dylan Chiu}
+\begin{document}
+    \maketitle
+    \subsection*{Problem 1}
+        \textit{Show that any two ordered fields with the least upper bound
+        property are order isomorphic.}
+        \begin{proof}
+            
+            Let $A,B$ be ordered fields with the least upper bound property
+            
+            First we show that $A,B$ contain the natural numbers:
+            
+            Since $A$ is a field it contains $0_A, 1_A.$
+            $1_A$ is distinct from $1_A+1_A$, since $0_A \not= 1_A$ (property of fields).
+            Let $n_A=\sum_{i=0}^{i=n}{1_A}$. All $n_A$ are distinct by induction.
+            Define a map $f: \mathbb{N} \rightarrow A$ as $f(n)=n_A$.
+            Since A is a field all of it's elements have additive inverses. Extend the map $f$ to the integers.
+            $f: \mathbb{Z} \rightarrow A$ as $f(z)=z_A$.
+            
+            Any field that contains the integers contains the rationals as a subfield (Exercise 3.0.1.)
+
+            Extend the map to the rationals $f: \mathbb{Q} \rightarrow A$ as $f(\frac{a}{b})=\frac{f(a)}{f(b)}$
+
+            There are injective homomorphisms from the rationals to A. Therefore A contain the rationals.
+
+            Proof is similar for B. 
+
+            Let $r_A\in A$. By O1 $\forall q_A\in Q_A, q_A < r \lor q_A > r_A \lor q = r $
+
+            Consider $L_{r_A} = \{q_A \in \mathbb{Q}_A\mid q_A < r_A\}$
+
+            Define a map $\phi: A \rightarrow B$ as $\phi(r_A) = lub(L_{r_b}) = lub(\{q_B\in Q_B \mid q_B < r_B)\}$
+            \begin{align*}
+            \phi(x_A+y_A) = lub(L_{x_B+y_B}) &= lub({q \in \mathbb{Q}_B \mid q < x+y})\\
+           &= lub(L_{x_B}+L_{y_B}) \text{(as defined in problem 3 ii)}\\
+            &=lub(L_{x_B})+lub(L_{y_B}) \text{(Problem 3 ii)}\\
+            &=\phi(x_A)+\phi(y_A)\\
+            \end{align*}
+            \begin{align*}
+                \phi(x_Ay_A)&=lub(L_{x_By_B})\\
+                &=lub(L_{x_B}*L_{y_B})\\
+                &=lub(L_{x_B})*lub(L_{y_B})\\
+                &=\phi(x)\phi(y)\\
+            \end{align*}
+        \end{proof}
+    \subsection*{Problem 2}
+        \textit{Prove that an ordered field has the least upper bound
+        property iff it has the greatest lower bound property.}
+        \begin{proof}
+        Let $F$ be an ordered field with the least upper bound property, and let $A$ be a non empty subset of $F$ that is bouded below.
+
+    Consider the subset of $F$, $B = \{ \text{Lower bounds of } A \}$.
+        $B$ is non empty by assumption that $A$ is bounded below.
+        Since every element of $A$ is an upper bound on $B$, $B$ is bounded above, and thus $B$ has a least upper bound $s$.
+
+    \noindent We now show that $s$ is the greatest lower bound of $A$.
+
+        i. $s$ is a lower bound of $A$. 
+        
+        Every element in $A$ is an upper bound of $B$. 
+        By definition of least upper bound, $s \le \text{every other upper bound of } B$
+        Therefore $\forall a \in A, s \le a$ which means $s$ is a lower bound of $A$
+        
+        ii. If $l$ is some other lower bound of $A, l \le s$ 
+        \\$B$ is the set of lowers bounds of $A$. By defintion of lub, $\forall b\in B, b \le s$
+        Therefore every other lower bound of $A \text{ is} \le s$
+        \end{proof}
+        \begin{proof}
+            Let $F$ be an ordered field with the greatest lower bound property, and let $A$ be a non empty subset of $F$ that is bouded above.
+    
+        Consider the subset of $F$, $B = \{ \text{Upper bounds of } A \}$.
+            $B$ is non empty by assumption that $A$ is bounded above.
+            Since every element of $A$ is an lower bound on $B$, $B$ is bounded below, and thus $B$ has a greatest lower bound $s$.
+    
+        \noindent We now show that $s$ is the least upper bound of $A$.
+    
+            i. $s$ is an upper bound of $A$. 
+            
+            Every element in $A$ is an lower bound of $B$. 
+            By definition of greatest upper bound, $s \le \text{every other lower bound of } B$
+            Therefore $\forall a \in A, s \ge a$ which means $s$ is an upper bound of $A$
+            
+            ii. If $l$ is some other upper bound of $A, l \ge s$ 
+            \\$B$ is the set of upper bounds of $A$. By defintion of glb, $\forall b\in B, b \ge s$
+            Therefore every other lower bound of $A \text{ is} \ge s$ 
+            \end{proof}
+        \pagebreak
+    \subsection*{Problem 3}
+    \textit{Suppose that A and B are bounded sets in R. Prove or disprove the following:}
+        
+    \noindent \textbf{(i)} $lub(A \cup B) = max\{lub(A), lub(B)\}.$
+        \begin{proof}
+            Let $s,t $ be the $lub(A)$, $lub(B)$ respectively. $m = max\{lub(A), lub(B)\}$. 
+            
+            $m$ is an upper bound on $A \cup B$ since $\forall a\in A , a \le s \le m$ and $\forall b\in B, b \le t \le m$ 
+
+            Let $l$ be some other upper bound on $A \cup B, l \le m$
+
+            Then $l \le max\{s,t\}$
+
+            WLOG, assume $s \ge t$ Since $s$ is a least upper bound, $l \le s \implies l=s$
+            
+            Therefore $l=m$
+        \end{proof}
+    \noindent \textbf{(ii)} If $A + B = \{a + b \mid a \in A, b \in B \}$, then $lub(A + B) = lub(A) + lub(B)$.
+        \begin{proof}
+            Let $a\in A, b\in B$ 
+
+            $a\le lub(A)$ and $b\le lub(B) \implies a+b \le lub(A) + lub(B)$ 
+            
+            $lub(A)+lub(B)$ is an upper bound of $A+B$ 
+
+            $\implies lub(A+B) \le lub(A)+lub(B)$
+
+            Now we show that no upper bound is smaller
+
+            $\forall \epsilon > 0, \exists a\in A, a > lub(A)-\frac{\epsilon}{2}$ and $\exists b\in B, b > lub(B)-\frac{\epsilon}{2}$
+
+            $a+b > lub(A)+lub(B)-\epsilon$
+
+            $\implies lub(A+B) > lub(A)+lub(B)-\epsilon$
+
+            $\implies lub(A+B) \ge lub(A)+lub(B)$
+
+            Therefore $lub(A+B) = lub(A)+lub(B)$
+
+        \end{proof}
+    \noindent \textbf{(iii)} If the elements of $A$ and $B$ are positive and $A*B = \{ab | a \in A, b \in B\}$, then $lub(A * B) = lub(A)*lub(B).$
+        \begin{proof}
+            Let $a\in A, b\in B$ 
+
+            $a\le lub(A)$ and $b\le lub(B)$
+
+            $ab \le lub(A)*lub(B)$
+            
+            $\implies lub(A+B) \le lub(A)+lub(B)$
+
+            Now we show that no upper bound is smaller
+
+            $\forall \epsilon > 0, \exists a\in A, a > lub(A)-\sqrt{\epsilon}$ and $\exists b\in B, b > lub(B)-\sqrt{\epsilon}{2}$
+
+            $ab > lub(A)lub(B)-\epsilon *lub(A)-\epsilon *lub(B) - \epsilon^2$
+
+            $ab > lub(A)lub(B)-\epsilon(lub(A)+lub(B)+\epsilon)$ Note that $lub(A) \text{ and } lub(B) > 0$
+
+            $lub(AB) > lub(A)lub(B)-\epsilon(lub(A)+lub(B)+\epsilon)$
+
+            $lub(AB) \ge lub(A)lub(B)$
+
+        \end{proof}
+    \noindent \textbf{(iv)} Formulate the analogous problems for the greatest lower bound.
+
+            $glb(A \cup B) = min\{glb(A),glb(B)\}$
+
+            If $A + B = \{a + b \mid a \in A, b \in B \}$, then $glb(A + B) = glb(A) + glb(B)$
+
+            If the elements of $A$ and $B$ are positive and $A*B = \{ab | a \in A, b \in B\}$, then $glb(A * B) = glb(A)*glb(B).$
+    \subsection*{Problem 4} 
+    
+    (i) \textit{Show that any irrational number multiplied by any non-zero rational
+        number is irrational.}
+    \begin{proof}
+        Let $ a \in \mathbb{Q}^c, b\in \mathbb{Q}\backslash \{0\}$ 
+
+        Assume $ab \in \mathbb{Q}$ to derive a contradiction. 
+
+        Then we can write $ab = \frac{p}{q}$ $p,q \in \mathbb{Z} p,q $ coprime
+
+        Then $a=\frac{p}{qb} \implies a \in \mathbb{Q}$
+
+        This is a contradiction to our assumption that $a$ is irrational. 
+
+        Thus $ab \in \mathbb{Q}^c$
+    \end{proof}
+    \noindent(ii) \textit{Show that the product of two irrational numbers may be rational or
+        irrational.}
+    \begin{proof}
+
+        Case 1: Product of two irrationals is rational
+        $$\sqrt{2} \in \mathbb{Q}^c$$ 
+        $$\sqrt{2}*\sqrt{2} = 2 \in \mathbb{Q}$$
+
+        Case 2: Product of two irrationals is irrational
+        $$\sqrt{3}, \sqrt{6} \in \mathbb{Q}^c \text{ (proofs attached to back)}$$
+        $$\sqrt{2}*\sqrt{3}=\sqrt{6}$$
+    \end{proof}
+    \subsection*{Problem 5}
+        Show that, for any $a,b \in \mathbb{Q}$, we have $||a|-|b|| \le |a-b|$
+        \begin{proof}
+            By the triangle inequality $|a|=|(a-b)+b| \le |a-b| + |b|$
+
+            $|a|-|b| \le |a-b|$
+
+            Consider the case: $|a|-|b| \ge 0$
+
+            Then $|a|-|b| = ||a|-|b|| \le |a-b|$
+
+            Now consider the case $|a|-|b| < 0$
+
+            Then $||a|-|b|| = -(|a|-|b|) = |b|-|a| \le |b-a| = |a-b|$
+
+            $\implies ||a|-|b|| \le |a-b|$ 
+        \end{proof}
+
+\end{document}
