@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1649108508 "/Users/dylanchiu/Desktop/Math347/HW6/HW6.tex" "/Users/dylanchiu/Desktop/Math347/HW6/HW6.pdf" "HW6" 1649108508
-  "/Users/dylanchiu/Desktop/Math347/HW6/HW6.aux" 1649108508 32 c81c40425fbb5e93b90fba65da0b5e61 ""
-  "/Users/dylanchiu/Desktop/Math347/HW6/HW6.tex" 1649037215 8870 a478414805d69d4eceddc7ee57e3eaf4 ""
+["pdflatex"] 1650569637 "/Users/dylanchiu/Desktop/Math347/HW6/HW6.tex" "/Users/dylanchiu/Desktop/Math347/HW6/HW6.pdf" "HW6" 1650569671
+  "/Users/dylanchiu/Desktop/Math347/HW6/HW6.aux" 1650569637 32 2d1df76398b3c48c6419a45a7331db2d ""
+  "/Users/dylanchiu/Desktop/Math347/HW6/HW6.tex" 1650569637 9082 f4107a6e37e84037753378a3d862a927 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc" 1177804218 3341 78e600b269762aa2a25a5293cc4535c0 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc" 1177804218 3275 8d7166dfdbc31ffdc8aba0c31b3bd5c8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc" 1177804218 3375 808c88761dbdc66fc653d18f42765b64 ""
@@ -91,11 +91,11 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1616695603 5169178 a2ce6e2d73f603b690db6777d06dbccb ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1648581505 2724740 9d0546a9e5efe5dcc42e3d9e0f5cbb16 ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
-  "HW6.aux" 1649108508 32 c81c40425fbb5e93b90fba65da0b5e61 "pdflatex"
-  "HW6.tex" 1649037215 8870 a478414805d69d4eceddc7ee57e3eaf4 ""
+  "HW6.aux" 1650569637 32 2d1df76398b3c48c6419a45a7331db2d "pdflatex"
+  "HW6.tex" 1650569637 9082 f4107a6e37e84037753378a3d862a927 ""
   (generated)
-  "HW6.aux"
   "/Users/dylanchiu/Desktop/Math347/HW6/HW6.pdf"
   "HW6.log"
   "/Users/dylanchiu/Desktop/Math347/HW6/HW6.log"
   "HW6.pdf"
+  "HW6.aux"

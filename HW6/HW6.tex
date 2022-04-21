@@ -7,7 +7,7 @@
 \author{Dylan Chiu}
 \begin{document}
     \maketitle
-    \subsection*{Problem 1}
+    \subsection*{Exercise 3.1.9.}
         \textit{Show that any two ordered fields with the least upper bound
         property are order isomorphic.}
         \begin{proof}
@@ -35,7 +35,7 @@
 
             Consider $L_{r_A} = \{q_A \in \mathbb{Q}_A\mid q_A < r_A\}$
 
-            Define a map $\phi: A \rightarrow B$ as $\phi(r_A) = lub(L_{r_b}) = lub(\{q_B\in Q_B \mid q_B < r_B)\}$
+            Define a map $\phi: A \rightarrow B$ as $\phi(r_A) = lub(L_{r_b}) = lub(\{q_B\in Q_B \mid q_a < L_{r_A})\}$
             \begin{align*}
             \phi(x_A+y_A) = lub(L_{x_B+y_B}) &= lub({q \in \mathbb{Q}_B \mid q < x+y})\\
            &= lub(L_{x_B}+L_{y_B}) \text{(as defined in problem 3 ii)}\\
@@ -48,8 +48,11 @@
                 &=lub(L_{x_B})*lub(L_{y_B})\\
                 &=\phi(x)\phi(y)\\
             \end{align*}
+                Suppose $x < y$. Then $lub(L_{x} \le x)$ and $lub(L_y) \le y$\\
+                $\implies lub(L_x) < lub(L_y)$\\
+                $\implies \phi(x) < \phi(y)$\\
         \end{proof}
-    \subsection*{Problem 2}
+    \subsection*{Exercise 3.1.11.}
         \textit{Prove that an ordered field has the least upper bound
         property iff it has the greatest lower bound property.}
         \begin{proof}
@@ -91,7 +94,7 @@
             Therefore every other lower bound of $A \text{ is} \ge s$ 
             \end{proof}
         \pagebreak
-    \subsection*{Problem 3}
+    \subsection*{Exercise 3.1.14.}
     \textit{Suppose that A and B are bounded sets in R. Prove or disprove the following:}
         
     \noindent \textbf{(i)} $lub(A \cup B) = max\{lub(A), lub(B)\}.$
@@ -161,7 +164,7 @@
             If $A + B = \{a + b \mid a \in A, b \in B \}$, then $glb(A + B) = glb(A) + glb(B)$
 
             If the elements of $A$ and $B$ are positive and $A*B = \{ab | a \in A, b \in B\}$, then $glb(A * B) = glb(A)*glb(B).$
-    \subsection*{Problem 4} 
+    \subsection*{Exercise 3.2.9.} 
     
     (i) \textit{Show that any irrational number multiplied by any non-zero rational
         number is irrational.}
@@ -190,7 +193,7 @@
         $$\sqrt{3}, \sqrt{6} \in \mathbb{Q}^c \text{ (proofs attached to back)}$$
         $$\sqrt{2}*\sqrt{3}=\sqrt{6}$$
     \end{proof}
-    \subsection*{Problem 5}
+    \subsection*{Exercise 3.5.1.}
         Show that, for any $a,b \in \mathbb{Q}$, we have $||a|-|b|| \le |a-b|$
         \begin{proof}
             By the triangle inequality $|a|=|(a-b)+b| \le |a-b| + |b|$
