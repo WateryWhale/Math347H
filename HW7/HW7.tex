@@ -10,11 +10,11 @@
     \subsection*{Exercise 3.5.5.}
         \textit{Show that the limit of a convergent sequence is unique.}
         \begin{proof}
-            To derive a contradiction suppose $a,b$ be distinct limits of a convergent sequence $(a_k)$
+            To derive a contradiction suppose $a,b$ are distinct limits of a convergent sequence $(a_k)$
             Then definition of convergence states: 
             Given any arbitrary $r \in \mathbb{Q}, \exists N_1, N_2 \in \mathbb{N} s.t \forall n \ge N_1, |a_n - a| < r$ and $\forall m \ge N_2 |a_m - b| < r$
 
-            Let $N=max(N_1, N_2), r = \frac{|a-b|}{4}$ (notice a != b implies $r > 0$)
+            Let $N=max(N_1, N_2), r = \frac{|a-b|}{4}$ (notice $a\not = b$ implies $r > 0$)
 
             Then $\forall n \ge N, |a_n - a| < r$ and $|a_n - b| < r.$
 
@@ -22,7 +22,7 @@
 
             $|a_n - a| + |b - a_n| < 2r = \frac{|a-b|}{2}$
             
-            $|(a_n-a)+(b-a_n)| \le |a_n - a| + |b - a_n|$ (triangle !=)
+            $|(a_n-a)+(b-a_n)| \le |a_n - a| + |b - a_n|$ (triangle $\not =$)
 
             $|b-a| = |a-b| \le |a_n - a| + |b - a_n| < \frac{|a-b|}{2}$
 
@@ -50,7 +50,7 @@
     \subsection*{Exercise 3.5.13.}
     \textit {Show that if a Cauchy sequence does not converge to 0, all the terms of the sequence eventually have the same sign}
         \begin{proof}
-            If a Cauchy sequence $(a_k)_{k \in \mathbb{N}}$ does not converge to 0, then $\exists r > 0, N_1 \in \mathbb{N}, \forall n \ge N_1, |a_n| \ge r$
+            If a Cauchy sequence $(a_k)_{k \in \mathbb{N}}$ does not converge to 0, then $\exists r > 0, N_1 \in \mathbb{N}, \forall n \ge N_1, |a_n| \ge r$ (Lemma 3.5.12)
 
             Since $(a_k)$ is Cauchy, $\exists N_2 \in \mathbb{N} s.t |a_n-a_m| < \frac{r}{2}, \forall n,m \ge N$
 
@@ -108,9 +108,9 @@
 
             $(a_k-a’_k) \in I$ and converges to 0
 
-            $(b_k - b’_k) \in in I$ and converges to 0. 
+            $(b_k - b’_k) \in I$ and converges to 0. 
 
-            $(a_k-a’_k) + (b_k - b’_k) = (a_k-a’_k + b_k - b’_k) = (a_k+b_k - (a’_k+b’_k))$ in I since I is closed under addition
+            $(a_k-a’_k) + (b_k - b’_k) = (a_k-a’_k + b_k - b’_k) = (a_k+b_k - (a’_k+b’_k)) \in I$ since $I$ is closed under addition
 
             $(a_k+b_k ) \sim (a’_k+b’_k)$
 
