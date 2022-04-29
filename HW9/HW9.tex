@@ -52,8 +52,9 @@
         Now we show that $S$ is closed. Assume not to derive a contradiction. Then $S$ does not contain all of its acculumation points. 
         Let $x$ be an accumulation point of $S$ that is not in $S$. Then $\forall \ep > 0, B_{\ep}(x)\backslash \{x\} \cap S \not = \emptyset$
         Pick a sequence $(a_k)$ as follows. $a_1 = p\in B_{1}(x)\backslash \{x\} \cap S$. Then pick $a_2 = p\in B_{1/2}(x)\backslash \{x, a_1\} \cap S$
-        Continuing inductively we select a sequence $(a_k)$ that converges to $a\in S^c$. $(a_k)$ does not have a subsequence that converges in $S$. 
-        But this contradicts out assumption that $S$ is sequentially compact. Thus $S$ must be closed. 
+        Continuing inductively we select a sequence $(a_k)$ that has a subsequence $(a_{k_n})\rightarrow a\in S^c$. 
+        Every convergent subsequence has the same limit, therefore $(a_k)$ does not have a subsequence that converges in $S$. 
+        But this contradicts our assumption that $S$ is sequentially compact. Thus $S$ must be closed. 
 
 
     \end{proof}
