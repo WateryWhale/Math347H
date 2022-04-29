@@ -1,0 +1,112 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[a4paper, total={6.5in, 8in}]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{MnSymbol}
+\usepackage{wasysym}
+\usepackage{lipsum}% http://ctan.org/pkg/lipsum
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\newcommand{\mbr}{\mathbb{R}}
+\newcommand{\mbn}{\mathbb{N}}
+\newcommand {\ep}{\epsilon}
+\newcommand {\st}{\text{ s.t }}
+\title{Math 347 HW 9}
+\author{Dylan Chiu}
+\begin{document}
+\maketitle
+\subsection*{Exercise 3.6.31.} 
+    \textit{Show that a subset of $\mbr$ is compact if and only if it is
+    closed and bounded.}
+    \begin{proof}
+        $<=$ is proved in Theorem 3.6.27 (Heine-Borel)
+
+        We now prove $=>$. If $S = \emptyset$ the proof is trivial. $S^C = \mbr$ is obviously open and $S$ is vacuously bounded. 
+        Then let $S \subseteq \mbr$ be a non empty compact set.
+        First we show that $S$ is bounded. Pick some point $x\in S$ and consider
+        $A = \bigcup_{i \in \mbn}{B_{i}(x)}$. $A$ is an open cover of $S$. 
+        Since $S$ is compact we can pick a finite subcover $A'=\bigcup_{i = 1}^{n}{B_{i}(x)}$.
+        Then $S$ is bounded above by $x+n$ and bounded below by $x-n$.\\ 
+        Now we show that $S$ is closed or equivalently, $S^c$ is open. Pick some point $a\in S^c$. 
+        We can construct an open cover of $S$ as follows. Define $r_b = \frac{|a-b|}{2}$ for a point $b\in S$. 
+        Now $\bigcup_{b \in S}{B_{r_b}(b)}$ is an open cover of $S$. By compactness of $S$ we can pick a finite subcover. 
+        Consider the set $A = \{r_b | B_{r_b}(b) \in \text{our finite subcover}\}$ and $r = min(A)$. This is justified since $A$ is finite. 
+        Then $B_r(a)$ is a neighborhood of $a$ that is completely contained in $S^c$. Since $a$ was chosen arbirartily $S^c \text{ is open} \implies S$ is closed.
+    \end{proof}
+    \pagebreak
+\subsection*{Exercise 3.6.32.}
+    \textit{A subset of R is compact if and only if it is sequentially
+    compact.}
+    \begin{proof}
+        $=>$ Suppose $S\subseteq \mbr$ is a compact set. By exercise 3.6.31, $S$ is closed and bounded. 
+        Let $(a_k)_{k \in \mbn}$ be a sequence in $S$. By lemma 3.6.10, $(a_k)_{k\in \mbr}$ has a convergent subsequence we call $(a_{k_n})$.
+        We aim to show that $(a_{k_n})$ converges to an element in S. Let $a$ be the limit of $(a_{k_n})$. 
+        Then the definition of convergence states $\forall \ep > 0, \exists N \in \mbn \st \forall n \ge N |a_{k_n}-a| < \ep$
+        Then $a$ is an accumulation point of $S$. But $S$ is closed iff $S$ contains all of its accumulation points. 
+        Thus $S$ contains $a$ and $(a_{k_n})$ converges to $a\in S$
+        
+        $<=$ Suppose $S\subseteq \mbr$ is a sequentially compact set i.e every sequence in $S$ has a subsequence that converges to an element in $S$.
+        Assume $S$ is not bounded to derive a contradiction. Pick some element $a_1 \in S$. Since $S$ is not bounded
+        $\exists a_2 \in S, |a_2 - a_1| > 2$. Continue selecting a sequence $(a_n)_{n\in \mbn}$ such that $|a_n - a_{n-1}| > n$
+        Then there is a convergent subsequence $(a_{n_k}) \rightarrow a$. Since $(a_{n_k})$ is convergent, it is also Cauchy. 
+        $\forall \ep >0 ,\exists N \in \mbn \st \forall n,m \ge N, |a_{n_k} - a_{m_k}| < \ep$ 
+        But this is a contradiction since $|a_{n_k} - a_{m_k}|$ is unbounded. \\
+        Now we show that $S$ is closed. Assume not to derive a contradiction. Then $S$ does not contain all of its acculumation points. 
+        Let $x$ be an accumulation point of $S$ that is not in $S$. Then $\forall \ep > 0, B_{\ep}(x)\backslash \{x\} \cap S \not = \emptyset$
+        Pick a sequence $(a_k)$ as follows. $a_1 = p\in B_{1}(x)\backslash \{x\} \cap S$. Then pick $a_2 = p\in B_{1/2}(x)\backslash \{x, a_1\} \cap S$
+        Continuing inductively we select a sequence $(a_k)$ that converges to $a\in S^c$. $(a_k)$ does not have a subsequence that converges in $S$. 
+        But this contradicts out assumption that $S$ is sequentially compact. Thus $S$ must be closed. 
+
+
+    \end{proof}
+\subsection*{Problem 3}
+    {Let $f : \mbr \rightarrow \mbr$ be continuous. Suppose $(a_k)_{k \in \mbn} \rightarrow a$. Prove $(f(a_k)) \rightarrow f(a).$}
+    \begin{proof} Fix $\ep > 0$. Then by definition of continuity 
+       $$\exists \delta > 0 \st a_k \in B_\delta(a) \implies f(a_k) \in B_\ep(f(a))$$
+       $(a_n) \rightarrow a$ means
+       $$\forall \delta > 0, \exists N \in \mbn \st \forall n \ge N, a_n\in B_\delta(a)$$
+
+       Using continuity, $\exists N \in \mbn \st \forall n \ge N, f(a_n) \in B_\ep(f(a))$.
+       But this is simply the definition of $(f(a_n)) \rightarrow f(a).$
+      
+    \end{proof}
+\pagebreak
+\subsection*{Problem 4}
+    Let $(X, d)$ be a metric space. Prove that the open ball $B_r(x_0) := \{x \in X : d(x, x_0) < r\}$
+    is indeed open.
+    \begin{proof}
+        Let $x_1$ be a point in $B_r(x_0)$. Let $\phi =$ 
+        \[ \begin{cases} 
+            d(x_0,x_1) & d(x_0,x_1) \le r/2 \\
+            r-d(x_0,x_1) & d(x_0,x_1) > r/2 
+            \end{cases}
+        \]
+        
+
+        Case 1: $d(x_0,x_1) \le r/2$. 
+        Let $x \in B_\phi(x_1)$. 
+        $$d(x_0, x) \le d(x_0, x_1) + d(x_1, x) < r/2 + r/2 = r$$
+
+        Case 2: $d(x,x_0) > r/2$.
+        Let $x \in B_\phi(x_1)$. 
+        $$d(x_0, x) \le  d(x_0, x_1) + d(x_1, x) < d(x_0, x_1) + r-d(x_0, x_1) = r$$
+
+        In both cases $B_\phi(x_1) \subseteq B_r(x_0)$
+    \end{proof}
+    \subsection*{Exercise 4.2.8.}
+    Let $p$ be a real number such that $ p \ge 1$. For $x = (x_1, x_2, \mathellipsis,x_n) \in \mbr^n$, 
+    we define $$||x||_p = (\sum_{j=1}^{n}{|x_j|^p})^{1/p}$$
+    $d_p(x,y) = ||x-y||$\\\\
+    \textit{Prove that $d_p$ is a metric on $\mbr^n$. }
+    \begin{proof}
+        $d_p$ is clearly positive definite due to the $|*|$ in the summation.\\
+        $d_p$ is symmetric by commutativity of $\mbr$\\
+        Now we show triangle inequality.
+        \begin{align*}
+        ||x + y||_p^p &= \sum_i|x_i+y_i|^p \le \sum_i{|x_i+y_i|}^{p-1}|x_i| + \sum_i{|x_i+y_i|}^{p-1}|y_i|\\
+        &\text{Now we apply Holder's inequality to both summations individually.}\\
+        &\le (\sum{|x_i+y_i|^{(p-1)*\frac{1}{(1-1/p)}}})^{1-1/p}(\sum{|x_i|}^p)^{1/p} + (\sum{|x_i+y_i|^{(p-1)*\frac{1}{(1-1/p)}}})^{1-1/p}(\sum{|y_i|}^p)^{1/p}\\
+        &\le (\sum{|x_i+y_i|^{p}})^{1-1/p}((\sum{|x_i|}^p)^{1/p} + (\sum|y_i|^p)^{1/p})\\
+        &\le (\sum{|x_i+y_i|^{p}})^{p-1}((\sum{|x_i|}^p)^{1/p} + (\sum|y_i|^p)^{1/p})\\
+        ||x + y||_p &\le (\sum{|x_i|}^p)^{1/p} + (\sum|y_i|^p)^{1/p}\\
+        \end{align*}
+    \end{proof}
+\end{document}
